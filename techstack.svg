@@ -1,0 +1,399 @@
+<svg viewBox="0 0 2000 1250" xmlns="http://www.w3.org/2000/svg" font-family="'Segoe UI', 'JetBrains Mono', 'Consolas', monospace">
+<defs>
+
+  <radialGradient id="bgGlow" cx="50%" cy="50%" r="75%">
+    <stop offset="0%" stop-color="#0f1420"/>
+    <stop offset="100%" stop-color="#05070c"/>
+  </radialGradient>
+
+  <filter id="softGlow" x="-150%" y="-150%" width="400%" height="400%">
+    <feGaussianBlur stdDeviation="4.5" result="blur"/>
+    <feMerge>
+      <feMergeNode in="blur"/>
+      <feMergeNode in="SourceGraphic"/>
+    </feMerge>
+  </filter>
+
+  <filter id="hubGlow" x="-200%" y="-200%" width="500%" height="500%">
+    <feGaussianBlur stdDeviation="9" result="blur"/>
+    <feMerge>
+      <feMergeNode in="blur"/>
+      <feMergeNode in="SourceGraphic"/>
+    </feMerge>
+  </filter>
+
+  <radialGradient id="hubFill" cx="35%" cy="30%" r="75%">
+    <stop offset="0%" stop-color="#fff8dc"/>
+    <stop offset="55%" stop-color="#f5d90a"/>
+    <stop offset="100%" stop-color="#b8860b"/>
+  </radialGradient>
+
+
+  <radialGradient id="fill-languages" cx="35%" cy="30%" r="75%">
+    <stop offset="0%" stop-color="#ffffff"/>
+    <stop offset="45%" stop-color="#38bdf8"/>
+    <stop offset="100%" stop-color="#38bdf8" stop-opacity="0.55"/>
+  </radialGradient>
+
+  <radialGradient id="fill-frameworks" cx="35%" cy="30%" r="75%">
+    <stop offset="0%" stop-color="#ffffff"/>
+    <stop offset="45%" stop-color="#a78bfa"/>
+    <stop offset="100%" stop-color="#a78bfa" stop-opacity="0.55"/>
+  </radialGradient>
+
+  <radialGradient id="fill-tools" cx="35%" cy="30%" r="75%">
+    <stop offset="0%" stop-color="#ffffff"/>
+    <stop offset="45%" stop-color="#fb923c"/>
+    <stop offset="100%" stop-color="#fb923c" stop-opacity="0.55"/>
+  </radialGradient>
+
+  <radialGradient id="fill-libraries" cx="35%" cy="30%" r="75%">
+    <stop offset="0%" stop-color="#ffffff"/>
+    <stop offset="45%" stop-color="#34d399"/>
+    <stop offset="100%" stop-color="#34d399" stop-opacity="0.55"/>
+  </radialGradient>
+
+  <radialGradient id="fill-databases" cx="35%" cy="30%" r="75%">
+    <stop offset="0%" stop-color="#ffffff"/>
+    <stop offset="45%" stop-color="#fb7185"/>
+    <stop offset="100%" stop-color="#fb7185" stop-opacity="0.55"/>
+  </radialGradient>
+</defs>
+
+<style>
+  .bg { fill: url(#bgGlow); }
+  .wire {
+    fill: none;
+    stroke-width: 1.6;
+    stroke-linecap: round;
+    stroke-dasharray: 6 10;
+    opacity: 0.55;
+    animation: flow 3.2s linear infinite;
+  }
+  .wire-hub { stroke-width: 2.2; opacity: 0.7; animation-duration: 4s; }
+  @keyframes flow {
+    to { stroke-dashoffset: -160; }
+  }
+  .pulse-ring {
+    fill: none;
+    stroke-width: 2;
+    opacity: 0.9;
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: pulse 3s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%   { transform: scale(1);    opacity: 0.85; }
+    50%  { transform: scale(1.18); opacity: 0.15; }
+    100% { transform: scale(1);    opacity: 0.85; }
+  }
+  .node-group {
+    transform-box: fill-box;
+    transform-origin: center;
+    transition: transform 0.25s ease;
+    cursor: pointer;
+  }
+  .node-group:hover {
+    transform: scale(1.14);
+  }
+  .icon-txt {
+    fill: #ffffff;
+    font-weight: 700;
+    text-anchor: middle;
+    dominant-baseline: central;
+    paint-order: stroke;
+  }
+  .label-txt {
+    fill: #cfd8e3;
+    text-anchor: middle;
+    font-size: 15px;
+    letter-spacing: 0.3px;
+  }
+  .cat-label {
+    fill: #ffffff;
+    text-anchor: middle;
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+  }
+  .hub-label {
+    fill: #1a1406;
+    text-anchor: middle;
+    font-weight: 800;
+    font-size: 19px;
+    letter-spacing: 1px;
+  }
+  .hub-pulse {
+    fill: none;
+    stroke: #f5d90a;
+    stroke-width: 2.5;
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: hubpulse 2.6s ease-in-out infinite;
+  }
+  @keyframes hubpulse {
+    0%   { transform: scale(1);    opacity: 0.9; }
+    60%  { transform: scale(1.35); opacity: 0;   }
+    100% { transform: scale(1.35); opacity: 0;   }
+  }
+  .title-txt { fill: #e8ecf1; font-size: 26px; font-weight: 700; letter-spacing: 2px; }
+  .subtitle-txt { fill: #64748b; font-size: 14px; letter-spacing: 1px; }
+</style>
+
+<rect class="bg" x="0" y="0" width="2000" height="1250" rx="28"/>
+<text x="1000.0" y="36" class="title-txt" text-anchor="middle">MY TECH STACK</text>
+<text x="1000.0" y="58" class="subtitle-txt" text-anchor="middle">A NEURAL MAP OF WHAT I BUILD WITH</text>
+<path class="wire wire-hub" stroke="#38bdf8" d="M 1005 140 C 653.5 140, 653.5 420, 302 420"/>
+<path class="wire wire-hub" stroke="#a78bfa" d="M 1005 140 C 813.0 140, 813.0 860, 621 860"/>
+<path class="wire wire-hub" stroke="#fb923c" d="M 1005 140 C 1005.0 140, 1005.0 540, 1005 540"/>
+<path class="wire wire-hub" stroke="#34d399" d="M 1005 140 C 1249.5 140, 1249.5 860, 1494 860"/>
+<path class="wire wire-hub" stroke="#fb7185" d="M 1005 140 C 1441.5 140, 1441.5 420, 1878 420"/>
+<path class="wire" stroke="#38bdf8" d="M 302 420 C 302 560.0, 107.0 560.0, 107.0 700"/>
+<path class="wire" stroke="#38bdf8" d="M 302 420 C 302 560.0, 237.0 560.0, 237.0 700"/>
+<path class="wire" stroke="#38bdf8" d="M 302 420 C 302 560.0, 367.0 560.0, 367.0 700"/>
+<path class="wire" stroke="#38bdf8" d="M 302 420 C 302 560.0, 497.0 560.0, 497.0 700"/>
+<g filter="url(#softGlow)">
+<circle cx="302" cy="420" r="9" fill="#38bdf8"/>
+<circle class="pulse-ring" cx="302" cy="420" r="9" stroke="#38bdf8"/>
+</g>
+<text x="302" y="398" class="cat-label">LANGUAGES</text>
+<path class="wire" stroke="#a78bfa" d="M 621 860 C 621 1000.0, 621.0 1000.0, 621.0 1140"/>
+<g filter="url(#softGlow)">
+<circle cx="621" cy="860" r="9" fill="#a78bfa"/>
+<circle class="pulse-ring" cx="621" cy="860" r="9" stroke="#a78bfa"/>
+</g>
+<text x="621" y="838" class="cat-label">FRAMEWORKS</text>
+<path class="wire" stroke="#fb923c" d="M 1005 540 C 1005 680.0, 895.0 680.0, 895.0 820"/>
+<path class="wire" stroke="#fb923c" d="M 1005 540 C 1005 680.0, 1005.0 680.0, 1005.0 820"/>
+<path class="wire" stroke="#fb923c" d="M 1005 540 C 1005 680.0, 1115.0 680.0, 1115.0 820"/>
+<g filter="url(#softGlow)">
+<circle cx="1005" cy="540" r="9" fill="#fb923c"/>
+<circle class="pulse-ring" cx="1005" cy="540" r="9" stroke="#fb923c"/>
+</g>
+<text x="1005" y="518" class="cat-label">TOOLS</text>
+<path class="wire" stroke="#34d399" d="M 1494 860 C 1494 1000.0, 1299.0 1000.0, 1299.0 1140"/>
+<path class="wire" stroke="#34d399" d="M 1494 860 C 1494 1000.0, 1429.0 1000.0, 1429.0 1140"/>
+<path class="wire" stroke="#34d399" d="M 1494 860 C 1494 1000.0, 1559.0 1000.0, 1559.0 1140"/>
+<path class="wire" stroke="#34d399" d="M 1494 860 C 1494 1000.0, 1689.0 1000.0, 1689.0 1140"/>
+<g filter="url(#softGlow)">
+<circle cx="1494" cy="860" r="9" fill="#34d399"/>
+<circle class="pulse-ring" cx="1494" cy="860" r="9" stroke="#34d399"/>
+</g>
+<text x="1494" y="838" class="cat-label">LIBRARIES</text>
+<path class="wire" stroke="#fb7185" d="M 1878 420 C 1878 560.0, 1813.0 560.0, 1813.0 700"/>
+<path class="wire" stroke="#fb7185" d="M 1878 420 C 1878 560.0, 1943.0 560.0, 1943.0 700"/>
+<g filter="url(#softGlow)">
+<circle cx="1878" cy="420" r="9" fill="#fb7185"/>
+<circle class="pulse-ring" cx="1878" cy="420" r="9" stroke="#fb7185"/>
+</g>
+<text x="1878" y="398" class="cat-label">DATABASES</text>
+
+<g class="node-group">
+  <g filter="url(#softGlow)">
+    <circle class="pulse-ring" cx="107.0" cy="700" r="37" stroke="#38bdf8"/>
+    <circle cx="107.0" cy="700" r="37" fill="#1b2735" stroke="#38bdf8" stroke-width="1.5"/>
+  </g>
+  <g transform="translate(107.0,700) scale(1.22)">
+        <path d="M -3,-16 C 4,-16 9,-14.5 9,-11 L 9,-2 C 9,0.2 7.2,2 5,2 L -3,2
+                 C -6,2 -8,4 -8,7 L -8,3 L -14,3 L -14,9
+                 C -14,13.5 -9.5,16.5 -3,16.5 L -3,12 C -3,10.5 -1.8,9.3 -0.3,9.3
+                 L 6,9.3 C 10.5,9.3 14,5.8 14,1.3 L 14,-8
+                 C 14,-12.6 8,-16 -3,-16 Z"
+              fill="#4B8BBE"/>
+        <circle cx="-4.5" cy="-11" r="1.6" fill="#1b2735"/>
+        <path d="M 3,16 C -4,16 -9,14.5 -9,11 L -9,2 C -9,-0.2 -7.2,-2 -5,-2 L 3,-2
+                 C 6,-2 8,-4 8,-7 L 8,-3 L 14,-3 L 14,-9
+                 C 14,-13.5 9.5,-16.5 3,-16.5 L 3,-12 C 3,-10.5 1.8,-9.3 0.3,-9.3
+                 L -6,-9.3 C -10.5,-9.3 -14,-5.8 -14,-1.3 L -14,8
+                 C -14,12.6 -8,16 3,16 Z"
+              fill="#FFD43B"/>
+        <circle cx="4.5" cy="11" r="1.6" fill="#1b2735"/>
+    </g>
+  <text x="107.0" y="758" class="label-txt" font-size="18">Python</text>
+</g>
+
+<g class="node-group">
+  <g filter="url(#softGlow)">
+    <circle class="pulse-ring" cx="237.0" cy="700" r="37" stroke="#38bdf8"/>
+    <circle cx="237.0" cy="700" r="37" fill="#00599C" stroke="#38bdf8" stroke-width="1.5"/>
+  </g>
+  <g transform="translate(237.0,700) scale(1.22)">
+        <text x="-2" y="7" text-anchor="middle" font-size="26" font-weight="800" fill="#ffffff" font-family="Georgia, serif">C</text>
+        <text x="13" y="-1" text-anchor="middle" font-size="15" font-weight="800" fill="#ffffff">++</text>
+    </g>
+  <text x="237.0" y="758" class="label-txt" font-size="18">C++</text>
+</g>
+
+<g class="node-group">
+  <g filter="url(#softGlow)">
+    <circle class="pulse-ring" cx="367.0" cy="700" r="37" stroke="#38bdf8"/>
+    <circle cx="367.0" cy="700" r="37" fill="#E44D26" stroke="#38bdf8" stroke-width="1.5"/>
+  </g>
+  <g transform="translate(367.0,700) scale(1.22)">
+        <text x="0" y="7" text-anchor="middle" font-size="19" font-weight="800" fill="#ffffff" font-family="Consolas, monospace">&lt;/&gt;</text>
+    </g>
+  <text x="367.0" y="758" class="label-txt" font-size="18">HTML</text>
+</g>
+
+<g class="node-group">
+  <g filter="url(#softGlow)">
+    <circle class="pulse-ring" cx="497.0" cy="700" r="37" stroke="#38bdf8"/>
+    <circle cx="497.0" cy="700" r="37" fill="#1572B6" stroke="#38bdf8" stroke-width="1.5"/>
+  </g>
+  <g transform="translate(497.0,700) scale(1.22)">
+        <text x="0" y="7" text-anchor="middle" font-size="20" font-weight="800" fill="#ffffff" font-family="Consolas, monospace">{ }</text>
+    </g>
+  <text x="497.0" y="758" class="label-txt" font-size="18">CSS</text>
+</g>
+
+<g class="node-group">
+  <g filter="url(#softGlow)">
+    <circle class="pulse-ring" cx="621.0" cy="1140" r="37" stroke="#a78bfa"/>
+    <circle cx="621.0" cy="1140" r="37" fill="#05998b" stroke="#a78bfa" stroke-width="1.5"/>
+  </g>
+  <g transform="translate(621.0,1140) scale(1.22)">
+        <polygon points="3,-16 -10,2 -1,2 -3,16 11,-4 1,-4" fill="#ffffff"/>
+    </g>
+  <text x="621.0" y="1198" class="label-txt" font-size="16">FastAPI</text>
+</g>
+
+<g class="node-group">
+  <g filter="url(#softGlow)">
+    <circle class="pulse-ring" cx="895.0" cy="820" r="37" stroke="#fb923c"/>
+    <circle cx="895.0" cy="820" r="37" fill="#F1502F" stroke="#fb923c" stroke-width="1.5"/>
+  </g>
+  <g transform="translate(895.0,820) scale(1.22)">
+        <path d="M -14,0 L 0,-14 L 14,0 L 0,14 Z" fill="none" stroke="#ffffff" stroke-width="1.6" opacity="0.55"/>
+        <line x1="-4" y1="8" x2="2" y2="-8" stroke="#ffffff" stroke-width="2.2"/>
+        <circle cx="-4" cy="8" r="2.6" fill="#ffffff"/>
+        <circle cx="2" cy="-8" r="2.6" fill="#ffffff"/>
+        <circle cx="9" cy="-1" r="2.6" fill="#ffffff"/>
+        <path d="M 2,-8 C 6,-8 9,-5 9,-1" fill="none" stroke="#ffffff" stroke-width="2.2"/>
+    </g>
+  <text x="895.0" y="878" class="label-txt" font-size="18">Git</text>
+</g>
+
+<g class="node-group">
+  <g filter="url(#softGlow)">
+    <circle class="pulse-ring" cx="1005.0" cy="820" r="37" stroke="#fb923c"/>
+    <circle cx="1005.0" cy="820" r="37" fill="#0078D4" stroke="#fb923c" stroke-width="1.5"/>
+  </g>
+  <g transform="translate(1005.0,820) scale(1.22)">
+        <polygon points="-9,-16 12,-2 12,2 -9,16 -9,9 4,0 -9,-9" fill="#ffffff"/>
+    </g>
+  <text x="1005.0" y="878" class="label-txt" font-size="16">VS Code</text>
+</g>
+
+<g class="node-group">
+  <g filter="url(#softGlow)">
+    <circle class="pulse-ring" cx="1115.0" cy="820" r="37" stroke="#fb923c"/>
+    <circle cx="1115.0" cy="820" r="37" fill="#0b0e11" stroke="#fb923c" stroke-width="1.5"/>
+  </g>
+  <g transform="translate(1115.0,820) scale(1.22)">
+        <ellipse cx="0" cy="1" rx="10" ry="14" fill="#ffffff"/>
+        <ellipse cx="-4" cy="-6" rx="2.4" ry="3" fill="#0b0e11"/>
+        <ellipse cx="4" cy="-6" rx="2.4" ry="3" fill="#0b0e11"/>
+        <circle cx="-4" cy="-6.6" r="0.9" fill="#ffffff"/>
+        <circle cx="4" cy="-6.6" r="0.9" fill="#ffffff"/>
+        <path d="M -3,4 Q 0,8 3,4 Q 3,10 0,11 Q -3,10 -3,4 Z" fill="#e8ab17"/>
+        <ellipse cx="-7" cy="13" rx="3" ry="1.8" fill="#e8ab17"/>
+        <ellipse cx="7" cy="13" rx="3" ry="1.8" fill="#e8ab17"/>
+    </g>
+  <text x="1115.0" y="878" class="label-txt" font-size="18">Linux</text>
+</g>
+
+<g class="node-group">
+  <g filter="url(#softGlow)">
+    <circle class="pulse-ring" cx="1299.0" cy="1140" r="37" stroke="#34d399"/>
+    <circle cx="1299.0" cy="1140" r="37" fill="#013243" stroke="#34d399" stroke-width="1.5"/>
+  </g>
+  <g transform="translate(1299.0,1140) scale(1.22)">
+        <path d="M -10,-14 L -14,-14 L -14,14 L -10,14" fill="none" stroke="#ffffff" stroke-width="2.2"/>
+        <path d="M 10,-14 L 14,-14 L 14,14 L 10,14" fill="none" stroke="#ffffff" stroke-width="2.2"/>
+        <circle cx="-4" cy="0" r="2" fill="#4dabcf"/>
+        <circle cx="4" cy="-6" r="2" fill="#ffffff"/>
+        <circle cx="4" cy="6" r="2" fill="#ffffff"/>
+    </g>
+  <text x="1299.0" y="1198" class="label-txt" font-size="18">NumPy</text>
+</g>
+
+<g class="node-group">
+  <g filter="url(#softGlow)">
+    <circle class="pulse-ring" cx="1429.0" cy="1140" r="37" stroke="#34d399"/>
+    <circle cx="1429.0" cy="1140" r="37" fill="#150458" stroke="#34d399" stroke-width="1.5"/>
+  </g>
+  <g transform="translate(1429.0,1140) scale(1.22)">
+        <circle cx="0" cy="2" r="13" fill="#ffffff"/>
+        <ellipse cx="-9" cy="-11" rx="4.2" ry="5.5" fill="#150458" transform="rotate(-20 -9 -11)"/>
+        <ellipse cx="9" cy="-11" rx="4.2" ry="5.5" fill="#150458" transform="rotate(20 9 -11)"/>
+        <ellipse cx="-5.5" cy="1" rx="2.6" ry="3.4" fill="#150458"/>
+        <ellipse cx="5.5" cy="1" rx="2.6" ry="3.4" fill="#150458"/>
+        <circle cx="0" cy="7" r="1.5" fill="#E70488"/>
+    </g>
+  <text x="1429.0" y="1198" class="label-txt" font-size="18">Pandas</text>
+</g>
+
+<g class="node-group">
+  <g filter="url(#softGlow)">
+    <circle class="pulse-ring" cx="1559.0" cy="1140" r="37" stroke="#34d399"/>
+    <circle cx="1559.0" cy="1140" r="37" fill="#26456a" stroke="#34d399" stroke-width="1.5"/>
+  </g>
+  <g transform="translate(1559.0,1140) scale(1.22)">
+        <rect x="-13" y="2" width="6" height="12" rx="1.4" fill="#ffffff"/>
+        <rect x="-3" y="-6" width="6" height="20" rx="1.4" fill="#ffffff"/>
+        <rect x="7" y="-14" width="6" height="28" rx="1.4" fill="#ff8c2b"/>
+    </g>
+  <text x="1559.0" y="1198" class="label-txt" font-size="13">Matplotlib</text>
+</g>
+
+<g class="node-group">
+  <g filter="url(#softGlow)">
+    <circle class="pulse-ring" cx="1689.0" cy="1140" r="37" stroke="#34d399"/>
+    <circle cx="1689.0" cy="1140" r="37" fill="#ffffff" stroke="#34d399" stroke-width="1.5"/>
+  </g>
+  <g transform="translate(1689.0,1140) scale(1.22)">
+        <ellipse cx="0" cy="-10" rx="4.4" ry="7" fill="#f7931e"/>
+        <ellipse cx="0" cy="10" rx="4.4" ry="7" fill="#f7931e"/>
+        <ellipse cx="-10" cy="0" rx="7" ry="4.4" fill="#3499cd"/>
+        <ellipse cx="10" cy="0" rx="7" ry="4.4" fill="#3499cd"/>
+        <circle cx="0" cy="0" r="4.6" fill="#1b2735"/>
+    </g>
+  <text x="1689.0" y="1198" class="label-txt" font-size="13">Scikit-learn</text>
+</g>
+
+<g class="node-group">
+  <g filter="url(#softGlow)">
+    <circle class="pulse-ring" cx="1813.0" cy="700" r="37" stroke="#fb7185"/>
+    <circle cx="1813.0" cy="700" r="37" fill="#336791" stroke="#fb7185" stroke-width="1.5"/>
+  </g>
+  <g transform="translate(1813.0,700) scale(1.22)">
+        <path d="M -2,-15 C 8,-15 14,-8 14,0 C 14,7 10,12 10,15 L 6,15 C 6,12 8,9 8,4
+                 C 4,7 -4,7 -8,4 C -9,8 -9,12 -12,15 L -15,15 C -13,10 -13,6 -14,2
+                 C -15,-8 -8,-15 -2,-15 Z" fill="#ffffff"/>
+        <circle cx="4" cy="-4" r="1.3" fill="#336791"/>
+    </g>
+  <text x="1813.0" y="758" class="label-txt" font-size="13">PostgreSQL</text>
+</g>
+
+<g class="node-group">
+  <g filter="url(#softGlow)">
+    <circle class="pulse-ring" cx="1943.0" cy="700" r="37" stroke="#fb7185"/>
+    <circle cx="1943.0" cy="700" r="37" fill="#00618A" stroke="#fb7185" stroke-width="1.5"/>
+  </g>
+  <g transform="translate(1943.0,700) scale(1.22)">
+        <path d="M -14,10 C -8,-8 4,-14 15,-15 C 12,-11 9,-7 9,-3
+                 C 9,3 4,7 -2,8 C -6,9 -10,9.5 -14,10 Z" fill="#ffffff"/>
+        <path d="M 15,-15 C 13,-13 11,-11 11,-8" fill="none" stroke="#ffffff" stroke-width="1.6"/>
+        <ellipse cx="10" cy="-9" rx="1.2" ry="1.8" fill="#00618A"/>
+        <path d="M -14,10 L -17,14" stroke="#ffffff" stroke-width="2" fill="none"/>
+        <path d="M -10,10 L -12,15" stroke="#ffffff" stroke-width="2" fill="none"/>
+    </g>
+  <text x="1943.0" y="758" class="label-txt" font-size="18">MySQL</text>
+</g>
+<g filter="url(#hubGlow)">
+<circle class="hub-pulse" cx="1005" cy="140" r="54"/>
+<circle cx="1005" cy="140" r="54" fill="url(#hubFill)" stroke="#fff3b0" stroke-width="2"/>
+</g>
+<text x="1005" y="136" class="hub-label">TECH</text>
+<text x="1005" y="156" class="hub-label">STACK</text>
+</svg>
